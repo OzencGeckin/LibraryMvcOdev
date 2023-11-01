@@ -1,0 +1,32 @@
+﻿@model AuthorResponsePageVM
+
+<h1>Yazar eklemek icin <a asp-controller="Author" asp-action="CreateAuthor">tıklayınız</a></h1>
+<h1>@TempData["message"]  </h1>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Yazar Ismi</th>
+            <th>Yazar SoyIsmi</th>
+            <th colspan="2" style="padding-left:200px">Islemler</th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+
+
+        @foreach (AuthorResponseModel item in Model.Authors)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>  <a asp-controller="Category" asp-action="UpdateCategory" asp-route-id="@item.ID" class="btn btn-warning">Guncelle</a> </td>
+                <td> <a asp-controller="Category" asp-action="DeleteCategory" asp-route-id="@item.ID" class="btn btn-danger">Sil</a>  </td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>

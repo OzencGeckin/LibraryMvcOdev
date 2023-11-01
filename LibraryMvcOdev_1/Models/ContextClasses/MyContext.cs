@@ -14,6 +14,21 @@ namespace LibraryMvcOdev_1.Models.ContextClasses
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new AuthorConfiguration());
+            modelBuilder.ApplyConfiguration(new BookConfiguration());
+            modelBuilder.ApplyConfiguration(new BookTagConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new TagConfiguration());
+            modelBuilder.ApplyConfiguration(new ShelfConfiguration());
+            modelBuilder.ApplyConfiguration(new RoomConfiguration());
+            
         }
+        public DbSet<Author> Authors { get; set; }
+        public DbSet<Book> Books { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<Shelf> Shelves { get; set; }
+        public DbSet<Room> Rooms { get; set; }
+        public DbSet<BookTag> BookTags { get; set; }
+
     }
 }
